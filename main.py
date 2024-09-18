@@ -10,6 +10,7 @@ ISBN de alguns livros brasileiros:
 informacoes_livro = ["isbn", "title", "subtitle", "authors", "publisher", "synopsis", "dimensions", "year", "format", "page_count", "subjects", "location", "retail_price", "cover_url", "provider"]
 while True:
     isbn = input("Digite o ISBN de um livro: (O ISBN deve ser de um livro brasileiro)\n")
+    isbn = isbn.replace(" ", "")
     r = requests.get(f"https://brasilapi.com.br/api/isbn/v1/{isbn}")
     if r.status_code != 200:
         print("Livro não presente no banco de dados da API")
